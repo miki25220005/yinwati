@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Album</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="icon" href="hello-kitty-icon.png" type="hello-kitty-icon.png">
+
+</head>
+<body>
+    <h1>
+    <img src="hello-kitty-icon.png" alt="Hello Kitty Icon" style="height: 50px;">
+    Yin Wati Khant
+	</h1>
+
+    <header class="site-header">
+    <h1>Welcome to Yin Wati Khant's Special Album</h1>
+    <p>“Your smile is like a magic spell, and I'm happily enchanted”</p>
+	</header>
+
+
+    <!-- Main Image Section -->
+    <div class="main-image">
+        <img src="My _Wadi_/cinema.jpg" alt="Main Photo" id="main-photo">
+    </div>
+
+    <!-- Slideshow Section -->
+	<div class="slideshow-container">
+	    <div class="slide">
+	        <img src="My _Wadi_/myanmar_suit.jpg" alt="Slide 1">
+	    </div>
+	    <div class="slide">
+	        <img src="My _Wadi_/time_cities1.jpg" alt="Slide 2">
+	    </div>
+	    <div class="slide">
+	        <img src="My _Wadi_/selfie.jpg" alt="Slide 3">
+	    </div>
+
+	    <!-- Navigation Buttons -->
+	    <a class="prev">&#10094;</a>
+		<a class="next">&#10095;</a>
+
+	</div>
+
+
+    <!-- Photo Grid with Linked Thumbnails -->
+    <div class="photo-grid">
+        <div class="thumbnail">
+            <a href="myanmar_suit.html">
+                <img src="My _Wadi_/myanmar_suit3.jpg" alt="Go to Myanmar Suit Page">
+            </a>
+        </div>
+        <div class="thumbnail">
+            <a href="thanlyin.html">
+                <img src="My _Wadi_/thanlyin4.jpg" alt="Go to Thanlyin Page">
+            </a>
+        </div>
+        <div class="thumbnail">
+            <a href="young.html">
+                <img src="My _Wadi_/young4.jpg" alt="Go to Young">
+            </a>
+        </div>
+        <div class="thumbnail">
+            <a href="images.html">
+                <img src="My _Wadi_/aged.jpg" alt="Go to Young">
+            </a>
+        </div>
+    </div>
+
+    <!-- Full-Screen Modal for Main Image -->
+    <div class="modal" id="main-modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="full-image">
+    </div>
+
+	<footer class="site-footer">
+	    <p>
+	        Made with ❤️ for <strong>Yin Wati Khant</strong> <img src="hello-kitty-icon.png" alt="Hello Kitty" style="height: 20px;">
+	    </p>
+	    <p>
+	        Created by <strong>Thant Zin Htoo</strong> | &copy; 2024
+	    </p>
+	</footer>
+
+
+    <script>
+    	
+    	// JavaScript for Full-Screen Main Image
+
+		// Select elements
+		const mainPhoto = document.getElementById("main-photo");
+		const modal = document.getElementById("main-modal");
+		const modalImage = document.getElementById("full-image");
+		const closeModal = document.querySelector(".close");
+
+		// Open modal on main image click
+		mainPhoto.addEventListener("click", () => {
+		    modal.style.display = "flex";
+		    modalImage.src = mainPhoto.src;
+		});
+
+		// Close modal when close button is clicked
+		closeModal.addEventListener("click", () => {
+		    modal.style.display = "none";
+		});
+
+		// Close modal when clicking outside the image
+		modal.addEventListener("click", (e) => {
+		    if (e.target === modal) {
+		        modal.style.display = "none";
+		    }
+		});
+
+		// JavaScript for Slideshow Functionality
+
+		let slideIndex = 0;
+		const slides = document.querySelectorAll(".slide");
+		const prevBtn = document.querySelector(".prev");
+		const nextBtn = document.querySelector(".next");
+
+		// Show the first slide initially
+		showSlide(slideIndex);
+
+		// Function to show a specific slide
+		function showSlide(index) {
+		    // Hide all slides
+		    slides.forEach((slide) => (slide.style.display = "none"));
+		    // Show the current slide
+		    slides[index].style.display = "block";
+		}
+
+		// Function to go to the next slide
+		function nextSlide() {
+		    slideIndex = (slideIndex + 1) % slides.length; // Loop back to the first slide
+		    showSlide(slideIndex);
+		}
+
+		// Function to go to the previous slide
+		function prevSlide() {
+		    slideIndex = (slideIndex - 1 + slides.length) % slides.length; // Loop to the last slide
+		    showSlide(slideIndex);
+		}
+
+		// Event Listeners for Buttons
+		nextBtn.addEventListener("click", nextSlide);
+		prevBtn.addEventListener("click", prevSlide);
+
+		// Autoplay Slideshow
+		setInterval(() => {
+		    nextSlide();
+		}, 1000); // Change slide every 5 seconds
+
+    </script>
+</body>
+</html>
