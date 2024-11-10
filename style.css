@@ -47,6 +47,7 @@ h1
 .main-image {
     text-align: center;
     margin: 20px 0;
+
 }
 
 .main-image img {
@@ -54,7 +55,7 @@ h1
     height: auto;    
     transition: transform 0.3s ease;
     border: 5px solid #ff99cc;
-    border-radius: 15px;
+    border-radius: 50px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
@@ -85,7 +86,7 @@ h1
     height: auto; 
     object-fit: cover;
     border: 3px solid #ffcce0;
-    border-radius: 1px;
+    border-radius: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -134,6 +135,7 @@ h1
     max-width: 100%;
     margin: auto;
     overflow: hidden;
+    padding-bottom: 10px;
 }
 
 /* Slides */
@@ -144,14 +146,15 @@ h1
 .slide img {
     width: 100%;
     height: auto;
+    padding-bottom: 10px;
 }
 
 /* Navigation Buttons */
 .prev, .next {
-    background: #ff99cc;
+    background: #85B4FF;
     color: white;
     font-size: 24px;
-    padding: 3px;
+    padding: 10px;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
