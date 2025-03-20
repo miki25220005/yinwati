@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Album</title>
-    <link rel="stylesheet" href="style.css">
+    <script>
+		function loadStylesheet() {
+			let link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.type = "text/css";
+	
+			if (window.innerWidth <= 768) {
+				link.href = "style.css"; // Mobile CSS
+			} else {
+				link.href = "wstyle.css"; // Desktop CSS
+			}
+	
+			document.head.appendChild(link);
+		}
+	
+		loadStylesheet();
+	
+		// Optional: Reload styles when the window is resized
+		window.addEventListener("resize", function () {
+			document.querySelectorAll("link[rel=stylesheet]").forEach(link => link.remove());
+			loadStylesheet();
+		});
+	</script>
+	
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <link rel="icon" href="hello-kitty-icon.png" type="hello-kitty-icon.png">
 
